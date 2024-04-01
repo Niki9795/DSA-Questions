@@ -5,19 +5,19 @@ class Solution:
         self.result = []
 
     def generateParenthesis(self):
-        def backtracking(openN, closeN):
-            if openN == closeN == self.n:
+        def backtracking(open, close):
+            if open == close == self.n:
                 self.result.append("".join(self.stack))
                 return
 
-            if openN < self.n:
+            if open < self.n:
                 self.stack.append("(")
-                backtracking(openN + 1, closeN)
+                backtracking(open + 1, close)
                 self.stack.pop()
 
-            if closeN < openN:
+            if close < open:
                 self.stack.append(")")
-                backtracking(openN, closeN + 1)
+                backtracking(open, close + 1)
                 self.stack.pop()
         
         backtracking(0,0)
