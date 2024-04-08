@@ -91,3 +91,49 @@ array = [int(n) for n in input("Enter the elements of an array seperated by comm
 target = int(input("Enter an element to search in an array\n"))
 binarysearch = BinarySearch(array, target)
 binarysearch.binarySearch(0, len(array) - 1)
+
+"""
+Array is sorted or not using Recursion
+"""
+class Sorted():
+
+    def sorted(self, array, index):
+        if index == len(array) - 1:
+            print("Given array is sorted")
+            return
+
+        if array[index] < array[index + 1]:
+            self.sorted(array, index + 1)
+            return
+        else:
+            print("Given array is not sorted")
+
+array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
+sorted = Sorted()
+sorted.sorted(array, 0)
+
+"""
+Linear Search using Recursion
+"""
+class LinearSearch():
+
+    def __init__(self, target):
+        self.target = target
+        self.targetList = []
+
+    def linearSearch(self, array, index):
+        if index == len(array):
+            if not self.targetList:
+                print("Target not found in the given array")
+            return self.targetList
+
+        if self.target == array[index]:
+            self.targetList.append(index)
+            print(f"Target found at index {index} in given array")
+        
+        return self.linearSearch(array, index + 1)
+        
+array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
+target = int(input("Enter an element to search in an array\n"))
+linearsearch = LinearSearch(target)
+print("Indexes where the target is found:", linearsearch.linearSearch(array, 0))
