@@ -4,7 +4,7 @@ class SelectionSort:
         self.array = array
         self.length = len(array)
 
-    def SelectionSort(self):
+    def selectionSort(self):
         for i in range(self.length):
             lastIndex = self.length - i - 1
             maxIndex = self.getMaxIndex(0, lastIndex)
@@ -22,4 +22,4 @@ class SelectionSort:
 
 array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
 selectionSort = SelectionSort(array)
-print(selectionSort.SelectionSort())
+print(selectionSort.selectionSortelectionSort())
