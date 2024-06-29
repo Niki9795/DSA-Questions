@@ -5,29 +5,20 @@ class CyclicSort():
         self.length = len(array)
 
     def cyclicsort(self):
-        missingNumber = 0
         i = 0
         while i < self.length:
             element = self.array[i]
-            correctIndex = element 
+            correctIndex = element - 1
 
             if i == correctIndex or self.array[i] == self.length:
-                print("Step = ",i, self.array)
                 i += 1
             else:            
                 temp = self.array[i]
                 self.array[i] = self.array[correctIndex]
                 self.array[correctIndex] = temp
 
-            print("Step = ",i, self.array)
-        for i in range(self.length):
-            if self.array[i] != i:
-                missingNumber = i
-                break
-            else:
-                missingNumber = self.length
-        return missingNumber
+        return self.array
     
-array = [9,6,4,2,3,5,7,0,1]
+array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
 cycle = CyclicSort(array)
 print(cycle.cyclicsort())
