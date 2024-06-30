@@ -4,7 +4,7 @@ Binary Search on 1D array
 class BinarySearch1D():
 
     def __init__(self, array, target):
-        self.array = sorted(self.array)
+        self.array = sorted(array)
         print("Sorted array is:", self.array)
         self.target = target
         
@@ -13,12 +13,12 @@ class BinarySearch1D():
         end = len(self.array) - 1
         
         while start <= end:
-            middle = int((start + (end - start) / 2))
+            middle = start + (end - start) // 2
 
             if self.target < self.array[middle]:
                 end = middle - 1
             elif self.target > self.array[middle]:
-                start = middle + 1
+                start = middle + 1 
             else:
                 print(f"Target found at index {middle} in the given array")
                 return middle
@@ -29,7 +29,8 @@ class BinarySearch1D():
 array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
 target = int(input("Enter an element to search in an array\n"))
 binarysearch1D = BinarySearch1D(array, target)
-binarysearch1D.binarySearch1D()
+number = binarysearch1D.binarySearch1D()
+print(number)
 
 """
 Binary Search on 2D array
