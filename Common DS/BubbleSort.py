@@ -5,7 +5,7 @@ class BubbleSort():
         self.length = len(array)
 
     def bubbleSort(self):
-        swapperd = False
+        swapped = False
         for i in range(self.length - 1):
             for j in range(1, self.length - i):
                 if self.array[j - 1] > self.array[j]:
@@ -13,10 +13,10 @@ class BubbleSort():
                     self.array[j - 1] = self.array[j]
                     self.array[j] = temp
                     j += 1
-                    swapperd = True
+                    swapped = True
             i += 1
 
-            if not swapperd:
+            if not swapped:
                 break 
         return self.array
     
