@@ -137,3 +137,27 @@ array = [int(n) for n in input("Enter the elements of an array seperated by comm
 target = int(input("Enter an element to search in an array\n"))
 linearsearch = LinearSearch(target)
 print("Indexes where the target is found:", linearsearch.linearSearch(array, 0))
+
+"""
+Pattern Printing using Recursion
+"""
+class Pattern():
+
+    def pattern(self, r, c):
+
+        if r == 0:
+            return
+        
+        if c < r:
+            print("*", end = "")
+            self.pattern(r, c + 1)
+        else:
+            print()
+            self.pattern(r - 1, 0)
+
+pattern = Pattern()
+rows = int(input("Enter the number of rows for pattern\n"))
+
+pattern.pattern(rows, 0)
+
+        
