@@ -1,3 +1,64 @@
+"""
+Merge Sort in Place Technique
+"""
+class MergeSort():
+
+    def __init__(self, array):
+        self.array = array
+        self.length = len(array)
+
+    def merge(self, start, mid, end):
+        mix = [0] * (end - start)
+
+        ptr1 = start
+        ptr2 = mid
+        mixArrayPtrr = 0
+
+        while ptr1 < mid and ptr2 < end:
+            if self.array[ptr1] < self.array[ptr2]:
+                mix[mixArrayPtrr] = self.array[ptr1]
+                ptr1 += 1
+            else:
+                mix[mixArrayPtrr] = self.array[ptr2]
+                ptr2 += 1
+            mixArrayPtrr += 1
+
+        while ptr1  < mid:
+            mix[mixArrayPtrr] = self.array[ptr1]
+            ptr1 += 1
+            mixArrayPtrr += 1
+
+        while ptr2 < end:
+            mix[mixArrayPtrr] = self.array [ptr2]
+            ptr2 += 1
+            mixArrayPtrr += 1 
+
+        for i in range(0, len(mix)):
+            self.array[start + i] = mix[i]
+
+    def sort(self, start, end):
+        if end - start <= 1:
+            return
+        
+        mid = start + (end - start) // 2
+
+        self.sort(start, mid)
+        self.sort(mid, end)
+
+        self.merge(start, mid, end)
+
+    def get_sorted_array(self):
+        return self.array
+    
+array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
+mergesort = MergeSort(array)
+sortedArray = mergesort.sort(0, mergesort.length)
+sortedArray = mergesort.get_sorted_array()
+print("Sorted array:", sortedArray)
+
+"""
+Merge Sort by taking copy of array technique
+"""
 class MergeSort():
 
     def __init__(self, array):
