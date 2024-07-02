@@ -22,4 +22,4 @@ class SelectionSort:
 
 array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
 selectionSort = SelectionSort(array)
-print(selectionSort.selectionSortelectionSort())
+print(selectionSort.selectionSort())

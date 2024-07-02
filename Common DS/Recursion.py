@@ -160,29 +160,56 @@
 
 # pattern.pattern(rows, 0)
 
+# """
+# Bubble Sort using Recursion
+# """     
+
+# class BubbleSort():
+
+#     def __init__(self, array):
+#         self.array = array
+#         self.length = len(array)
+
+#     def bubbleSort(self, r, c):
+#         if r == 0:
+#             return self.array
+        
+#         if c < r:
+#             if self.array[c] > self.array[c + 1]:
+#                 self.array[c], self.array[c + 1] = self.array[c + 1], self.array[c]
+#             return self.bubbleSort(r, c + 1)
+#         else:
+#             return self.bubbleSort(r - 1, 0)
+            
+    
+# array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
+# bubble = BubbleSort(array)
+# print(bubble.bubbleSort(bubble.length - 1, 0))
+
 """
-Bubble Sort using Recursion
-"""     
-
-class BubbleSort():
-
+Selection Sort using Recursion
+"""
+class SelectionSort():
     def __init__(self, array):
         self.array = array
         self.length = len(array)
 
-    def bubbleSort(self, i, j):
-        if i == self.length - 1:
+    def selectionSort(self, r, c, max):
+        if r == 0:
             return self.array
-        
-        if i < self.length - 1:
-            if j < self.length - i - 1:
-                if self.array[j] > self.array[j + 1]:
-                    self.array[j], self.array[j + 1] = self.array[j + 1], self.array[j]
-                return self.bubbleSort(i, j + 1)
-            return self.bubbleSort(i + 1, 0)
+
+        if c < r:
+            if self.array[c] > self.array[max]: 
+                return self.selectionSort(r, c + 1, c)  
+            else:
+                return self.selectionSort(r, c + 1, max)  
+        else:
+            temp = self.array[max]
+            self.array[max] = self.array[r - 1]
+            self.array[r - 1] = temp
             
-        return self.array
-    
-array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
-bubble = BubbleSort(array)
-print(bubble.bubbleSort(0, 0))
+            return self.selectionSort(r - 1, 0, 0)
+
+array = [int(n) for n in input("Enter the elements of an array separated by comma\n").split(",") if n.strip()]
+selection = SelectionSort(array)
+print(selection.selectionSort(selection.length, 0, 0))
