@@ -117,12 +117,8 @@ class Sorted():
         if index == len(array) - 1:
             print("Given array is sorted")
             return
-
-        if array[index] < array[index + 1]:
-            self.sorted(array, index + 1)
-            return
-        else:
-            print("Given array is not sorted")
+        print("Given array is not sorted")
+        return array[index] < array[index + 1] and self.sorted(array, index + 1)
 
 array = [int(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
 sorted = Sorted()
