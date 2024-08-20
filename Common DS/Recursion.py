@@ -79,6 +79,32 @@ fibonacciNumber = test.fibonacci(n)
 print(f"Fibonacci Number at index {n} is {fibonacciNumber}")
 
 """
+Remove the alphabet from a string using Recursion
+"""
+class RemoveAlphabet():
+
+    def __init__(self, string, alphabet):
+        self.string = string
+        self.alphabet = alphabet
+        self.newString = ""
+
+    def removeAlphabet(self, start):
+        if start == len(self.string):
+            return self.newString
+        
+        if self.string[start] != self.alphabet:
+            self.newString += self.string[start]
+            start += 1
+        else:
+            start += 1
+        return self.removeAlphabet(start)
+    
+string = input("Enter a string\n")
+alphabet = input("Enter an alphabet you want to remove from the string\n")
+remove = RemoveAlphabet(string, alphabet)
+print(f"New string after removing alphabet {alphabet} is {remove.removeAlphabet(0)}")
+
+"""
 Binary Search using Recursion
 """
 class BinarySearch():
