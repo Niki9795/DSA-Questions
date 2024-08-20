@@ -83,26 +83,23 @@ Remove the alphabet from a string using Recursion
 """
 class RemoveAlphabet():
 
-    def __init__(self, string, alphabet):
-        self.string = string
+    def __init__(self, alphabet):
         self.alphabet = alphabet
-        self.newString = ""
 
-    def removeAlphabet(self, start):
-        if start == len(self.string):
-            return self.newString
+    def removeAlphabet(self, string):
+        if string == "":
+            return ""
         
-        if self.string[start] != self.alphabet:
-            self.newString += self.string[start]
-            start += 1
+        ch = string[0]
+        if ch != self.alphabet:
+            return ch + self.removeAlphabet(string[1:])
         else:
-            start += 1
-        return self.removeAlphabet(start)
+            return self.removeAlphabet(string[1:])
     
 string = input("Enter a string\n")
 alphabet = input("Enter an alphabet you want to remove from the string\n")
-remove = RemoveAlphabet(string, alphabet)
-print(f"New string after removing alphabet {alphabet} is {remove.removeAlphabet(0)}")
+remove = RemoveAlphabet(alphabet)
+print(f"New string after removing alphabet {alphabet} is {remove.removeAlphabet(string)}")
 
 """
 Binary Search using Recursion
