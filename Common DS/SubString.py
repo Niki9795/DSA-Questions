@@ -1,9 +1,9 @@
 """
-Permutation using Recursion
+Finding sub string of a string using Recursion
 """
-class Permutations():
+class SubString():
 
-    def permutations(self, processedString, unPrpcessedString):
+    def subString(self, processedString, unPrpcessedString):
         result = []
         if unPrpcessedString == "":
             result.append(processedString)
@@ -11,21 +11,21 @@ class Permutations():
         
         ch = unPrpcessedString[0]
 
-        left = self.permutations(processedString + ch, unPrpcessedString[1:])
-        right = self.permutations(processedString, unPrpcessedString[1:])
+        left = self.subString(processedString + ch, unPrpcessedString[1:])
+        right = self.subString(processedString, unPrpcessedString[1:])
 
         return left + right
 
 string = input("Enter a string\n")
-permutations = Permutations()
-print("Possible Permutations are:", permutations.permutations("", string))
+subString = SubString()
+print("Possible Sub Strings are:", subString.subString("", string))
 
 """
-Permutation using Iteration
+Finding sub string of a string using Iteration
 """
-class Permutations():
+class SubString():
 
-    def permutations(self, array):
+    def subString(self, array):
         outerResult = [[]]
 
         for ch in array:
@@ -37,15 +37,15 @@ class Permutations():
         return outerResult
     
 array = [str(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
-permutations = Permutations()
-print("Possible Permutations are:", permutations.permutations(array))
+subString = SubString()
+print("Possible Sub Strings are:", subString.subString(array))
 
 """
-Permutation of duplicate elements using Iteration
+Finding sub string of a string of duplicate elements using Iteration
 """
-class Permutations():
+class SubString():
     
-    def permutations(self, array):
+    def subString(self, array):
         outerResult = [[]]
 
         start = 0
@@ -63,5 +63,5 @@ class Permutations():
         return outerResult
     
 array = [str(n) for n in input("Enter the elements of an array seperated by comma\n").split(",") if n.strip()]
-permutations = Permutations()
-print("Possible Permutations are:", permutations.permutations(sorted(array)))
+subString = SubString()
+print("Possible Sub Strings are:", subString.subString(sorted(array)))
